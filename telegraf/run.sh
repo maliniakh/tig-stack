@@ -12,4 +12,5 @@ sed -e "s/\${HOST_NAME}/$HOST_NAME/" \
 
 echo "=> Starting Telegraf ..."
 
+sleep 5
 exec telegraf -config /etc/telegraf/telegraf.conf

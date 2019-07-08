@@ -111,17 +111,13 @@
   urls = ["http://172.17.0.1:20005/jolokia"]
   [[inputs.jolokia2_agent.metric]]
    name = "broker_checkpointingRate"
-   mbean  = "net.corda:name=Checkpointing Rate*,type=Flows"
-   paths = ["OneMinuteRate", "Count"]
-   tag_keys = ["name"]
-   field_prefix = "$1"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
 
   [[inputs.jolokia2_agent.metric]]
    name = "broker_finishedFlow"
-   mbean  = "net.corda:name=Finished*,type=Flows"
+   mbean  = "net.corda:name=Finished,type=Flows"
    paths = ["Count"]
-   tag_keys = ["name"]
-   field_prefix = "$1"
 
   [[inputs.jolokia2_agent.metric]]
    name = "broker_inFlightFlow"
@@ -130,17 +126,137 @@
 
   [[inputs.jolokia2_agent.metric]]
    name = "broker_startedFlow"
-   mbean  = "net.corda:name=Started*,type=Flows"
+   mbean  = "net.corda:name=Started,type=Flows"
    paths = ["Count"]
-   tag_keys = ["name"]
-   field_prefix = "$1"
 
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20007/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "insurer_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
 
-#[[inputs.jolokia2_agent]]
-#  urls = ["http://172.17.0.1:20007/jolokia"]
-#  [[inputs.jolokia2_agent.metric]]
-#   name = "insurer_checkpointingRate"
-#   mbean  = "net.corda:name=Checkpointing Rate*,type=Flows"
-#   paths = ["OneMinuteRate"]
-#   tag_keys = ["name"]
-#   field_prefix = "$1"
+  [[inputs.jolokia2_agent.metric]]
+   name = "insurer_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "insurer_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "insurer_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
+
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20009/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "mnc_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "mnc_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "mnc_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "mnc_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
+
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20011/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "operator_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "operator_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "operator_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "operator_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
+
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20013/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "reinsurer_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "reinsurer_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "reinsurer_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "reinsurer_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
+
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20015/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "services_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "services_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "services_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "services_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
+
+[[inputs.jolokia2_agent]]
+  urls = ["http://172.17.0.1:20016/jolokia"]
+  [[inputs.jolokia2_agent.metric]]
+   name = "wholesaleBroker_checkpointingRate"
+   mbean  = "net.corda:name=Checkpointing Rate,type=Flows"
+   paths = ["RateUnit","OneMinuteRate","Count","FifteenMinuteRate","FiveMinuteRate","MeanRate"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "wholesaleBroker_finishedFlow"
+   mbean  = "net.corda:name=Finished,type=Flows"
+   paths = ["Count"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "wholesaleBroker_inFlightFlow"
+   mbean  = "net.corda:name=InFlight,type=Flows"
+   paths = ["Value"]
+
+  [[inputs.jolokia2_agent.metric]]
+   name = "wholesaleBroker_startedFlow"
+   mbean  = "net.corda:name=Started,type=Flows"
+   paths = ["Count"]
